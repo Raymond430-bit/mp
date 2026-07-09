@@ -1,12 +1,12 @@
 "use client";
 
-import { useState } from "react";
+import { useState, Suspense } from "react";
 import { useSearchParams } from "next/navigation";
 import { motion } from "framer-motion";
 import { Zap, Mail, Loader2, CheckCircle } from "lucide-react";
 import Link from "next/link";
 
-export default function VerifyPage() {
+function VerifyForm() {
   const searchParams = useSearchParams();
   const email = searchParams.get("email") || "";
   const [verified, setVerified] = useState(false);
@@ -14,7 +14,6 @@ export default function VerifyPage() {
 
   async function handleVerify() {
     setLoading(true);
-    // Simulate verification
     await new Promise(resolve => setTimeout(resolve, 1500));
     setVerified(true);
     setLoading(false);
@@ -31,7 +30,7 @@ export default function VerifyPage() {
         <p className="text-gray-400 mb-8">
           We&apos;ve sent a verification link to <span className="text-white">{email}</span>
         </p>
-
+        
         {verified ? (
           <div className="glass-card rounded-2xl p-8">
             <CheckCircle className="w-12 h-12 text-mp-success mx-auto mb-4" />
@@ -51,5 +50,13 @@ export default function VerifyPage() {
         )}
       </motion.div>
     </div>
+  );
+}
+
+export default function VerifyPage() {
+  return (
+    <Suspense fallback={<div className="min-h-screen flex items-center justify-center"><div className="text-white">Loading...</div></div>}>
+      <VerifyForm />
+    </Suspense>
   );
 }
