@@ -1,0 +1,4 @@
+export const metadata = { title: "Terms of Service" };
+export default function TermsPage() {
+  return <div className="pt-32 pb-20"><div className="max-w-3xl mx-auto px-4"><h1 className="text-4xl font-bold text-white mb-8">Terms of Service</h1><div className="glass-card rounded-2xl p-8 space-y-6 text-gray-300"><p>Last updated: July 4, 2026</p><p>By using MemePulse, you agree to these terms. Please read them carefully.</p><h2 className="text-xl font-semibold text-white mt-6">1. Acceptance of Terms</h2><p>By accessing or using MemePulse, you agree to be bound by these Terms of Service and all applicable laws and regulations.</p><h2 className="text-xl font-semibold text-white mt-6">2. Trading Risks</h2><p>Cryptocurrency trading involves substantial risk. You acknowledge that you understand these risks and trade at your own discretion.</p></div></div></div>;
+}
